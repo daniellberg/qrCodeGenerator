@@ -1,6 +1,6 @@
 from tkinter import *
 import qrcode
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageTk
 from tkinter import messagebox, Tk, Label, Entry, Button
 
 # cria funções 
@@ -26,10 +26,15 @@ def gera_qrCode():
             img = qr.make_image(fill_color='black', back_color='white')
             img.save('qrExport.png')
 
+#create GUI
 if __name__ == '__main__':
     window = Tk()
+    window.iconbitmap('icon.png') #not working
     window.title('Gerador de QR Code')
     window.config(padx=10, pady= 100)
+
+    iconPhoto = ImageTk.PhotoImage(Image.open("icon.png")) #falta usar a imagem
+    
 
     website_label = Label(text="URL:")
     website_label.grid(row=2, column=0)
